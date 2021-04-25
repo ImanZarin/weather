@@ -1,5 +1,10 @@
 <ul>
   <li *ngFor="let city of resultCities?.list">
-    {{ city?.name }}, {{ city?.sys?.country }}
+    <a
+      [routerLink]="['/weather']"
+      routerLinkActive="active"
+      [queryParams]="{ lat: city.coord.lat, lon: city.coord.lon }"
+      >{{ city?.name }}, {{ city?.sys?.country }}</a
+    >
   </li>
 </ul>

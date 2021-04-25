@@ -22,13 +22,14 @@ export class HeaderComponent implements OnInit {
       .search((<HTMLInputElement>cityInput.target).value)
       .subscribe((resp) => {
         console.log(resp);
+        this.onChange.emit(resp);
         if (resp.count === 1)
-          this.router.navigate([
-            '/',
-            resp.list[0].coord.lat,
-            resp.list[0].coord.lon,
-          ]);
-        else this.onChange.emit(resp);
+          this.router.navigate(['/weather'], {
+            queryParams: {
+              lat: resp.list[0].coord.lat,
+              lon: resp.list[0].coord.lon,
+            },
+          });
       });
   }
 }
