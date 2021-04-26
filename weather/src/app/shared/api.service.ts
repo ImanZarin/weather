@@ -3,6 +3,7 @@ import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { searchApiUrl, weatherApiUrl } from './constants';
 import { searchResults, weatherResult } from './api.models';
 import { Observable } from 'rxjs';
+import { MyStorage, MyUnits } from './enums';
 
 export interface weatherOption {}
 
@@ -22,8 +23,16 @@ export class ApiService {
 
   getWeather(lat: number, lon: number): Observable<weatherResult> {
     let params = new HttpParams();
+    let option = MyUnits.metric;
+    if (
+      localStorage.getItem(MyStorage.unit) &&
+      localStorage.getItem(MyStorage.unit) == MyUnits.imperial
+    )
+      option = MyUnits.imperial;
     params = params.append('lat', lat.toString());
     params = params.append('lon', lon.toString());
+    params = params.append('units', option);
+    params = params.append('exclude', 'minutely,alerts');
     params = params.append('appid', '1cb6ace31e50401f28b864f0b23fdc68');
     return this.http.get<weatherResult>(weatherApiUrl, { params: params });
   }

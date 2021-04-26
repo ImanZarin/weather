@@ -4,6 +4,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { searchResults } from '../shared/api.models';
 import { ApiService } from '../shared/api.service';
+import { MyStorage, MyUnits } from '../shared/enums';
 
 @Component({
   selector: 'app-header',
@@ -13,9 +14,18 @@ import { ApiService } from '../shared/api.service';
 export class HeaderComponent implements OnInit {
   constructor(private api: ApiService, private router: Router) {}
 
-  ngOnInit(): void {}
-
   @Output() onChange = new EventEmitter<searchResults>();
+  @Output() onSettingChange = new EventEmitter<boolean>();
+
+  isMetric: boolean = true;
+
+  ngOnInit(): void {
+    if (
+      localStorage.getItem(MyStorage.unit) &&
+      localStorage.getItem(MyStorage.unit) == MyUnits.imperial
+    )
+      this.isMetric = false;
+  }
 
   searchCity(cityInput: Event) {
     this.api
@@ -31,5 +41,9 @@ export class HeaderComponent implements OnInit {
             },
           });
       });
+  }
+
+  changeSetting(isMetricInput: Event) {
+    this.onSettingChange.emit((<HTMLInputElement>isMetricInput.target).checked);
   }
 }

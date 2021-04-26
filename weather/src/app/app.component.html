@@ -1,4 +1,4 @@
- <app-header (onChange)="updateSearchResult($event)"></app-header>
+ <app-header (onChange)="updateSearchResult($event)" (onSettingChange)="changeSetting($event)"></app-header>
 
   <div *ngIf="!searchCity">Enjoy Our app</div>
   <div *ngIf="searchCity && searchCity.list && searchCity.list.length === 0">There is no city match with your search</div>
