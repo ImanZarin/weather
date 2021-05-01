@@ -10,5 +10,5 @@ export enum MyUnits {
 
 export enum MyRoute {
   weather = '/weather',
-  search = 'search',
+  search = '/search',
 }

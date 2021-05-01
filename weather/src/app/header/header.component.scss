@@ -1,0 +1,55 @@
+@import "../../styles.scss";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: $secondary;
+}
+
+.search-container {
+  margin: 20px auto;
+  width: 80%;
+  max-width: 400px;
+  button {
+    width: 10%;
+    height: 100%;
+    border-radius: $radious-normal 0 0 $radious-normal;
+    background-color: $secondary-dark;
+    border: none;
+    color: $text-color;
+    vertical-align: middle;
+    cursor: pointer;
+    &:hover {
+      background-color: $secondary-light;
+    }
+  }
+  input {
+    padding: 5px 3%;
+    width: 84%; //100 - 10% (search icon) - 6% (left & rigth padding)
+    outline: none;
+    border-radius: 0 $radious-normal $radious-normal 0;
+    margin: 0;
+    border: none;
+    font-size: 1.25rem;
+    vertical-align: middle;
+  }
+}
+
+.search-icon {
+  text-align: center;
+}
+
+.toggle {
+  margin: auto 1rem auto 0;
+  @media (max-width: $mobile-size) {
+    margin: auto 0 auto 0;
+  }
+}
+
+::ng-deep .mat-slide-toggle-bar {
+  background-color: $primary-light !important;
+}
+
+::ng-deep .mat-slide-toggle-thumb {
+  background-color: $primary !important;
+}

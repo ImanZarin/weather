@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+$primary: hsl(233, 77%, 14%);
+$primary-dark: hsl(233, 77%, 4%);
+$primary-light: hsl(233, 77%, 24%);
+$secondary: hsl(234, 100%, 42%);
+$secondary-dark: hsl(234, 100%, 32%);
+$secondary-light: hsl(234, 100%, 52%);
+$text-color: hsl(0, 0%, 95%);
+$radious-normal: 10px;
+$mobile-size: 480px;
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: $text-color;
+  background-color: $primary;
+}

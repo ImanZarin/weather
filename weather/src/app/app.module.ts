@@ -11,6 +11,10 @@ import { DetailComponent } from './detail/detail.component';
 import { SearchResultComponent } from './search.result/search.result.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CityWeatherComponent } from './city-weather/city-weather.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,14 +25,18 @@ import { CityWeatherComponent } from './city-weather/city-weather.component';
     DailyComponent,
     DetailComponent,
     SearchResultComponent,
-    CityWeatherComponent
+    CityWeatherComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatIconModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

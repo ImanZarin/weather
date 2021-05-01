@@ -1,3 +1,22 @@
-<input placeholder="search city" (keyup.enter)="searchCity($event)">
+<div class="container">
+  <div class="search-container">
+    <button type="button" (click)="searchCity()">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="search button"
+        class="search-icon"
+        >search</mat-icon
+      >
+    </button>
+    <input placeholder="Search your city" type="text" [(ngModel)]="inputCity" (keyup.enter)="searchCity()" />
+  </div>
+  <mat-slide-toggle class="toggle" [checked]="isMetric" #toggle (change)="changeSetting($event)">&#176;{{toggle.checked?'C':'F'}}</mat-slide-toggle>
 
-<input type="checkbox" (change)="changeSetting($event)" [checked]="isMetric">
+  <!-- <input
+      class="toggle"
+      type="checkbox"
+      (change)="changeSetting($event)"
+      [checked]="isMetric"
+    />
+   -->
+</div>
