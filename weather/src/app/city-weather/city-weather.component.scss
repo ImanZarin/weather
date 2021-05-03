@@ -1,0 +1,40 @@
+@import '../../styles.scss';
+
+#container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "brief detail" "hourly hourly" "daily daily";
+    @media  (max-width: $mobile-size){
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas: "brief" "hourly" "daily" "detail";    
+    }
+    
+}
+
+#brief {
+    grid-area: brief;
+}
+
+#detail {
+    grid-area: detail;
+}
+
+#hourly {
+    grid-area: hourly;
+    margin: 1rem;
+    @media (max-width: $mobile-size) {
+        margin: 0;
+        margin-top: 1rem;
+    }
+}
+
+#daily {
+    grid-area: daily;
+    margin: 1rem;
+    @media (max-width: $mobile-size) {
+        margin: 0;
+        margin-top: 1rem;
+    }
+}

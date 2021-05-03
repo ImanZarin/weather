@@ -1,1 +1,18 @@
-<p>hourly works!</p>
+<div class="container">
+  <h3>{{ title }}</h3>
+  <div class="row-container">
+    <app-weather-card
+      class="card"
+      *ngFor="let hour of hours"
+      [chanceOfRain]="hour.humidity"
+      [temp]="hour.temp"
+      [tempMin]="0"
+      [tempMax]="0"
+      [type]="'hour'"
+      [time]="hour.dt"
+      [timeOffset]="timeOffset"
+      [image]="hour.weather[0].icon"
+    ></app-weather-card>
+  </div>
+</div>
+

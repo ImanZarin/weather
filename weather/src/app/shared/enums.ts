@@ -12,3 +12,8 @@ export enum MyRoute {
   weather = '/weather',
   search = '/search',
 }
+
+export enum WeatherCard {
+  day = 'day',
+  hour = 'hour',
+}

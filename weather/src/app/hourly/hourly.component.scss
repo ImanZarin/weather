@@ -1,0 +1,22 @@
+@import '../../styles.scss';
+
+.container {
+    background-color: $secondary;
+    color: $text-color;
+    border-radius: $radious-normal;
+    padding: 1rem;
+}
+
+.row-container {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+}
+
+.card {
+    // flex-basis: 100%;
+    min-width: 100px;
+    width: 25%;
+    max-width: 200px;
+    text-align: center;
+}

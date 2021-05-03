@@ -1,0 +1,31 @@
+<p *ngIf="type == 'day' && timeUTC > 0">
+  {{ timeUTC * 1000 | date: "E dd":"GMT" }}
+</p>
+<p *ngIf="type == 'hour' && timeUTC > 0">
+  {{ timeUTC * 1000 | date: "H":"GMT" }}:00
+</p>
+<p *ngIf="type == 'day'">
+  {{ tempMin | number: "1.0-0" }}&#176; - {{ tempMax | number: "1.0-0" }}&#176;
+</p>
+<p *ngIf="type == 'hour'">{{ temp | number: "1.0-0" }}&#176;</p>
+<div [ngSwitch]="image">
+  <mat-icon *ngSwitchCase="'01d'" class="icon">light_mode</mat-icon>
+  <mat-icon *ngSwitchCase="'01n'" class="icon">nightlight</mat-icon>
+  <mat-icon *ngSwitchCase="'02d'" class="icon">cloud</mat-icon>
+  <mat-icon *ngSwitchCase="'02n'" class="icon">cloud</mat-icon>
+  <mat-icon *ngSwitchCase="'03d'" class="icon">cloud</mat-icon>
+  <mat-icon *ngSwitchCase="'03n'" class="icon">cloud</mat-icon>
+  <mat-icon *ngSwitchCase="'04d'" class="icon">cloud</mat-icon>
+  <mat-icon *ngSwitchCase="'04n'" class="icon">cloud</mat-icon>
+  <mat-icon *ngSwitchCase="'09d'" class="icon">water_drop</mat-icon>
+  <mat-icon *ngSwitchCase="'09n'" class="icon">water_drop</mat-icon>
+  <mat-icon *ngSwitchCase="'10d'" class="icon">water_drop</mat-icon>
+  <mat-icon *ngSwitchCase="'10n'" class="icon">water_drop</mat-icon>
+  <mat-icon *ngSwitchCase="'11d'" class="icon">bolt</mat-icon>
+  <mat-icon *ngSwitchCase="'11n'" class="icon">bolt</mat-icon>
+  <mat-icon *ngSwitchCase="'13d'" class="icon">ac_unit</mat-icon>
+  <mat-icon *ngSwitchCase="'13n'" class="icon">ac_unit</mat-icon>
+  <mat-icon *ngSwitchCase="'50d'" class="icon">water</mat-icon>
+  <mat-icon *ngSwitchCase="'50n'" class="icon">water</mat-icon>
+</div>
+<p>{{ chanceOfRain }}%</p>

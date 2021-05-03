@@ -1,2 +1,18 @@
 <p>TimeZone: {{ cityWeather?.timezone }}</p>
 <p>Temp: {{ cityWeather?.current?.temp }}</p>
+<div id="container">
+  <app-brief id="brief"></app-brief>
+  <app-detail id="detail"></app-detail>
+  <app-hourly
+    id="hourly"
+    [hours]="cityWeather?.hourly"
+    [timeOffset]="cityWeather?.timezone_offset"
+    [time]="cityWeather?.current?.dt"
+  ></app-hourly>
+  <app-daily
+    id="daily"
+    [days]="cityWeather?.daily"
+    [timeOffset]="cityWeather?.timezone_offset"
+    [time]="cityWeather?.current?.dt"
+  ></app-daily>
+</div>

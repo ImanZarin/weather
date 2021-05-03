@@ -38,7 +38,7 @@ export type searchResults = {
   list: searchResult[];
 };
 
-type hourWeather = {
+export type hourWeather = {
   dt: number;
   temp: number;
   feels_like: number;
@@ -54,7 +54,7 @@ type hourWeather = {
   weather: weather[];
 };
 
-type dayWeather = {
+export type dayWeather = {
   dt: number;
   sunrise: number;
   sunset: number;

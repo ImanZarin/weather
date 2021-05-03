@@ -1,1 +1,17 @@
-<p>daily works!</p>
+<div class="container">
+  <h3>{{ title }}</h3>
+  <div class="row-container">
+    <app-weather-card
+      *ngFor="let day of days"
+      class="card"
+      [chanceOfRain]="day.humidity"
+      [temp]="0"
+      [tempMin]="day.temp.min"
+      [tempMax]="day.temp.max"
+      [type]="'day'"
+      [time]="day?.dt"
+      [timeOffset]="timeOffset"
+      [image]="day.weather[0].icon"
+    ></app-weather-card>
+  </div>
+</div>

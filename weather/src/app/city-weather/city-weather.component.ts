@@ -10,9 +10,9 @@ import { MyStorage } from '../shared/enums';
   styleUrls: ['./city-weather.component.scss'],
 })
 export class CityWeatherComponent implements OnInit {
-  selectedLat: number | undefined;
-  selectedLon: number | undefined;
-  cityWeather: weatherResult | undefined;
+  selectedLat!: number;
+  selectedLon!: number;
+  cityWeather!: weatherResult;
 
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService) {
     this.activatedRoute.queryParams.subscribe((params) => {

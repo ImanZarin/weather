@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { searchResults } from './shared/api.models';
-import { app_name } from './shared/constants';
+import { MyStrings } from './shared/constants';
 import { MyStorage, MyUnits } from './shared/enums';
 
 @Component({
@@ -10,7 +10,7 @@ import { MyStorage, MyUnits } from './shared/enums';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = app_name;
+  title = MyStrings.app_name;
   searchCity: searchResults | null = null;
 
   constructor(private router: Router) {}
@@ -52,7 +52,6 @@ export class AppComponent {
           lon: selectedCityCoordinate.lon,
         },
       });
-      
     }
   }
 }
