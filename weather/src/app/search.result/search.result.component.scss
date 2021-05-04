@@ -1,0 +1,31 @@
+@import "../../styles.scss";
+
+.container {
+  list-style-type: none;
+  margin: 1rem;
+  padding: 0;
+  @media (max-width: $mobile-size) {
+    margin: 0.5rem;
+  }
+}
+
+.list-first-row {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  span {
+    color: $text-color;
+    font-size: 1.5rem;
+    text-decoration: none;
+    text-align: center;
+    flex-basis: 100%;
+  }
+}
+
+.list-row {
+  @extend .list-first-row;
+  &:hover {
+    background-color: $secondary-dark;
+  }
+}

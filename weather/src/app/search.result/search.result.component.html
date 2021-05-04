@@ -1,11 +1,62 @@
-<ul>
+<ul class="container">
+  <li>
+    <div class="list-first-row">
+      <span>City</span>
+      <span>Country</span>
+      <span>Coordinate</span>
+    </div>
+  </li>
   <li *ngFor="let city of resultCities?.list">
     <a
+      class="list-row"
       [routerLink]="['/weather']"
       routerLinkActive="active"
       [queryParams]="{ lat: city.coord.lat, lon: city.coord.lon }"
-      >{{ city?.name }}, {{ city?.sys?.country }}</a
     >
+      <span>{{ city?.name }}</span>
+      <span>{{ city?.sys?.country }}</span>
+      <span
+        *ngIf="
+          city.coord.lat &&
+          city.coord.lon &&
+          city.coord.lat > 0 &&
+          city.coord.lon > 0
+        "
+        >{{ city.coord.lat | number: "1.0-2" }}&#176; N,
+        {{ city.coord.lon | number: "1.0-2" }}&#176; E</span
+      >
+      <span
+        *ngIf="
+          city.coord.lat &&
+          city.coord.lon &&
+          city.coord.lat > 0 &&
+          0 > city.coord.lon
+        "
+        >{{ city.coord.lat | number: "1.0-2" }}&#176; N,
+        {{ -city.coord.lon | number: "1.0-2" }}&#176; W</span
+      >
+      <span
+        *ngIf="
+          city.coord.lat &&
+          city.coord.lon &&
+          0 > city.coord.lat &&
+          city.coord.lon > 0
+        "
+        >{{ -city.coord.lat | number: "1.0-2" }}&#176; S,
+        {{ city.coord.lon | number: "1.0-2" }}&#176; E</span
+      >
+      <span
+        *ngIf="
+          city.coord.lat &&
+          city.coord.lon &&
+          0 > city.coord.lat &&
+          0 > city.coord.lon
+        "
+        >{{ -city.coord.lat | number: "1.0-2" }}&#176; S,
+        {{ -city.coord.lon | number: "1.0-2" }}&#176; W</span
+      >
+    </a>
   </li>
 </ul>
+
 <mat-spinner class="loading" *ngIf="isLoading"></mat-spinner>
