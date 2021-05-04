@@ -24,3 +24,9 @@ export enum UVStatus {
   high = 'HIGH',
   vhigh = 'EXTEREME',
 }
+
+export enum MyParams {
+  lat = 'lat',
+  lon = 'lon',
+  search = 'search'
+}

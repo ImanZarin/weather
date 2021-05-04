@@ -16,6 +16,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { WeatherCardComponent } from './weather-card/weather-card.component';
     BrowserAnimationsModule,
     MatSlideToggleModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

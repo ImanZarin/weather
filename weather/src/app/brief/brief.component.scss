@@ -29,6 +29,7 @@
 
 .desc {
   grid-area: desc;
+  line-height: 1.5rem;//same as h2 fontsize
   margin: 1rem;
   @media (max-width: $mobile-size) {
     margin: 0;
@@ -37,6 +38,7 @@
 }
 .city {
   grid-area: city;
+  overflow-wrap: break-word;
   margin: 1rem;
   @media (max-width: $mobile-size) {
     margin: 0;

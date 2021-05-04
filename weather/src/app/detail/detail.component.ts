@@ -31,7 +31,7 @@ export class DetailComponent implements OnInit {
   humidityTitle: string;
   dewTitle: string;
   pressureTitle: string;
-  pressureUnit: string;
+  pressureUnit: string = "MB";
   uvTitle: string;
   uvStatus1: string;
   uvStatus2: string;
@@ -58,10 +58,10 @@ export class DetailComponent implements OnInit {
       localStorage.getItem(MyStorage.unit) === MyUnits.imperial
     ) {
       this.windUnit = 'MPH';
-      this.pressureUnit = 'Pa';
+      //this.pressureUnit = 'Pa';
     } else {
       this.windUnit = 'KM/H';
-      this.pressureUnit = 'MB';
+      //this.pressureUnit = 'MB';
     }
   }
 

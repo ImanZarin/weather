@@ -1,11 +1,10 @@
-import { HttpResponse } from '@angular/common/http';
-import { EventEmitter } from '@angular/core';
 import { Component, OnInit, Output } from '@angular/core';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { Router } from '@angular/router';
-import { searchResults } from '../shared/api.models';
-import { ApiService } from '../shared/api.service';
-import { MyStorage, MyUnits } from '../shared/enums';
+import { MyRoute, MyStorage, MyUnits } from '../shared/enums';
+import { changeSetting } from '../shared/functions';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MyStrings } from '../shared/constants';
 
 @Component({
   selector: 'app-header',
@@ -13,14 +12,11 @@ import { MyStorage, MyUnits } from '../shared/enums';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  @Output() onChange = new EventEmitter<searchResults>();
-  @Output() onSettingChange = new EventEmitter<boolean>();
-
   isMetric: boolean = true;
   inputCity: string;
   loading: boolean = false;
 
-  constructor(private api: ApiService, private router: Router) {
+  constructor(private router: Router, private snackBar: MatSnackBar) {
     this.inputCity = '';
   }
 
@@ -33,21 +29,17 @@ export class HeaderComponent implements OnInit {
   }
 
   searchCity() {
-    if (this.loading) return;
-    this.loading = true;
-    this.api.search(this.inputCity).subscribe((resp) => {
-      this.onChange.emit(resp);
-      if (resp.count === 1)
-        this.router.navigate(['/weather'], {
-          queryParams: {
-            lat: resp.list[0].coord.lat,
-            lon: resp.list[0].coord.lon,
-          },
-        });
-    });
+    if (this.inputCity.length < 1)
+      this.snackBar.open(MyStrings.header_empty_input_error);
+    else
+      this.router.navigate([MyRoute.search], {
+        queryParams: {
+          search: this.inputCity,
+        },
+      });
   }
 
   changeSetting(isMetricInput: MatSlideToggleChange) {
-    this.onSettingChange.emit(isMetricInput.checked);
+    changeSetting(isMetricInput.checked, this.router);
   }
 }

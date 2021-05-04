@@ -20,3 +20,11 @@ body {
   color: $text-color;
   background-color: $primary;
 }
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+}

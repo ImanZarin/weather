@@ -1,10 +1,10 @@
-<div id="container">
+<div id="container" *ngIf="!isLoading">
   <app-brief
     id="brief"
     [temp]="weatherResult?.current?.temp"
     [tempMin]="todayWeather?.temp?.min"
     [tempMax]="todayWeather?.temp?.max"
-    [city]="weatherResult?.timezone"
+    [city]="cityName"
     [feels]="weatherResult?.current?.feels_like"
     [icon]="weather?.icon"
     [desc]="weather?.description"
@@ -33,3 +33,4 @@
     [time]="weatherResult?.current?.dt"
   ></app-daily>
 </div>
+<mat-spinner class="loading" *ngIf="isLoading"></mat-spinner>

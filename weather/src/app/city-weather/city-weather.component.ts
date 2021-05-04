@@ -15,8 +15,15 @@ export class CityWeatherComponent implements OnInit {
   weatherResult!: weatherResult;
   weather!: weather;
   todayWeather!: dayWeather;
+  cityName!: string;
+  isLoading: boolean = true;
 
-  constructor(private activatedRoute: ActivatedRoute, private api: ApiService) {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private api: ApiService
+  ) {}
+
+  ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
       this.selectedLat = params['lat'];
       this.selectedLon = params['lon'];
@@ -31,12 +38,13 @@ export class CityWeatherComponent implements OnInit {
             this.weatherResult = resp;
             this.weather = resp.current.weather[0];
             this.todayWeather = resp.daily[0];
+            this.cityName = resp.timezone.split("/")[1];
+            this.isLoading = false;
           });
-      } else return;
+      } else {
+        this.isLoading = false;
+        return;
+      }
     });
-  }
-
-  ngOnInit(): void {
-    
   }
 }
