@@ -28,7 +28,6 @@ export class CityWeatherComponent implements OnInit {
         this.api
           .getWeather(this.selectedLat, this.selectedLon)
           .subscribe((resp) => {
-            console.log(resp);
             this.weatherResult = resp;
             this.weather = resp.current.weather[0];
             this.todayWeather = resp.daily[0];

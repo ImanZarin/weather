@@ -22,6 +22,8 @@ export class DetailComponent implements OnInit {
   sunrise?: number;
   @Input()
   sunset?: number;
+  @Input()
+  timeOffset?: number = 0;
 
   title: string;
   windTitle: string;
@@ -63,5 +65,6 @@ export class DetailComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }

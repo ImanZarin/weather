@@ -34,10 +34,10 @@
 <div class="row">
   <mat-icon class="icon">brightness_5</mat-icon>
   <h4>{{ sunriseTitle }}</h4>
-  <span>{{ sunrise | date: "H:MM" }}</span>
+  <span *ngIf="timeOffset && sunrise">{{ (sunrise + timeOffset) * 1000 | date: "H:MM":"GMT" }}</span>
 </div>
 <div class="row">
   <mat-icon class="icon">brightness_6</mat-icon>
   <h4>{{ sunsetTitle }}</h4>
-  <span>{{ sunset | date: "H:MM" }}</span>
+  <span *ngIf="sunset && timeOffset">{{ (sunset + timeOffset) * 1000 | date: "H:MM":"GMT" }}</span>
 </div>
