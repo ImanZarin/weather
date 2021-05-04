@@ -1,18 +1,34 @@
-<p>TimeZone: {{ cityWeather?.timezone }}</p>
-<p>Temp: {{ cityWeather?.current?.temp }}</p>
 <div id="container">
-  <app-brief id="brief"></app-brief>
-  <app-detail id="detail"></app-detail>
+  <app-brief
+    id="brief"
+    [temp]="weatherResult?.current?.temp"
+    [tempMin]="todayWeather?.temp?.min"
+    [tempMax]="todayWeather?.temp?.max"
+    [city]="weatherResult?.timezone"
+    [feels]="weatherResult?.current?.feels_like"
+    [icon]="weather?.icon"
+    [desc]="weather?.description"
+  ></app-brief>
+  <app-detail
+    id="detail"
+    [wind]="weatherResult?.current?.wind_speed"
+    [humidity]="weatherResult?.current?.humidity"
+    [dew]="weatherResult?.current?.dew_point"
+    [pressure]="weatherResult?.current?.pressure"
+    [uv]="weatherResult?.current?.uvi"
+    [sunrise]="todayWeather?.sunrise"
+    [sunset]="todayWeather?.sunset"
+  ></app-detail>
   <app-hourly
     id="hourly"
-    [hours]="cityWeather?.hourly"
-    [timeOffset]="cityWeather?.timezone_offset"
-    [time]="cityWeather?.current?.dt"
+    [hours]="weatherResult?.hourly"
+    [timeOffset]="weatherResult?.timezone_offset"
+    [time]="weatherResult?.current?.dt"
   ></app-hourly>
   <app-daily
     id="daily"
-    [days]="cityWeather?.daily"
-    [timeOffset]="cityWeather?.timezone_offset"
-    [time]="cityWeather?.current?.dt"
+    [days]="weatherResult?.daily"
+    [timeOffset]="weatherResult?.timezone_offset"
+    [time]="weatherResult?.current?.dt"
   ></app-daily>
 </div>

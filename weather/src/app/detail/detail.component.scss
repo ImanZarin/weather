@@ -1,0 +1,16 @@
+.row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    h4 {
+        flex-basis: 30%;
+    }
+    span {
+        flex-basis: 60%;
+        text-align: center;
+    }
+}
+
+.icon {
+    flex-basis: 10%;
+}

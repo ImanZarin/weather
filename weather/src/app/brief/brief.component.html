@@ -1,1 +1,36 @@
-<p>brief works!</p>
+<div class="container">
+    <div class="main">
+        <h1 class="main-temp" style="display: inline">
+          {{ temp | number: "1.0-0" }}&#176;
+        </h1>
+        <div [ngSwitch]="icon" style="display: inline">
+          <mat-icon *ngSwitchCase="'01d'" class="icon">light_mode</mat-icon>
+          <mat-icon *ngSwitchCase="'01n'" class="icon">nightlight</mat-icon>
+          <mat-icon *ngSwitchCase="'02d'" class="icon">cloud</mat-icon>
+          <mat-icon *ngSwitchCase="'02n'" class="icon">cloud</mat-icon>
+          <mat-icon *ngSwitchCase="'03d'" class="icon">cloud</mat-icon>
+          <mat-icon *ngSwitchCase="'03n'" class="icon">cloud</mat-icon>
+          <mat-icon *ngSwitchCase="'04d'" class="icon">cloud</mat-icon>
+          <mat-icon *ngSwitchCase="'04n'" class="icon">cloud</mat-icon>
+          <mat-icon *ngSwitchCase="'09d'" class="icon">water_drop</mat-icon>
+          <mat-icon *ngSwitchCase="'09n'" class="icon">water_drop</mat-icon>
+          <mat-icon *ngSwitchCase="'10d'" class="icon">water_drop</mat-icon>
+          <mat-icon *ngSwitchCase="'10n'" class="icon">water_drop</mat-icon>
+          <mat-icon *ngSwitchCase="'11d'" class="icon">bolt</mat-icon>
+          <mat-icon *ngSwitchCase="'11n'" class="icon">bolt</mat-icon>
+          <mat-icon *ngSwitchCase="'13d'" class="icon">ac_unit</mat-icon>
+          <mat-icon *ngSwitchCase="'13n'" class="icon">ac_unit</mat-icon>
+          <mat-icon *ngSwitchCase="'50d'" class="icon">water</mat-icon>
+          <mat-icon *ngSwitchCase="'50n'" class="icon">water</mat-icon>
+        </div>
+      </div>
+      <div class="feels">
+        <h3 style="display: inline">{{ feelTxt }}: {{ feels | number: "1.0-0" }}&#176;</h3>
+        <span
+          >{{ tempMin | number: "1.0-0" }}&#176; -
+          {{ tempMax | number: "1.0-0" }}&#176;</span
+        >
+      </div>
+      <span class="desc">{{ desc }}</span>
+      <h2 class="city">{{ city }}</h2>      
+</div>

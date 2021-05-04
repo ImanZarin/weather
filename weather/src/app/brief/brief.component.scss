@@ -1,0 +1,56 @@
+@import '../../styles.scss';
+
+.container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto;
+  grid-template-areas: "main feels" "desc city";
+}
+
+.main {
+  grid-area: main;
+  margin: 1rem;
+  @media (max-width: $mobile-size) {
+    margin: 0;
+    margin-top: 1rem;
+  }
+}
+
+.feels {
+  grid-area: feels;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  @media (max-width: $mobile-size) {
+    margin: 0;
+    margin-top: 1rem;
+  }
+}
+
+.desc {
+  grid-area: desc;
+  margin: 1rem;
+  @media (max-width: $mobile-size) {
+    margin: 0;
+    margin-top: 1rem;
+  }
+}
+.city {
+  grid-area: city;
+  margin: 1rem;
+  @media (max-width: $mobile-size) {
+    margin: 0;
+    margin-top: 1rem;
+  }
+}
+
+.main-temp {
+  font-size: 3rem;
+}
+
+.icon {
+  height: auto;
+  width: auto;
+  font-size: 3rem;
+  text-align: center;
+}

@@ -17,3 +17,10 @@ export enum WeatherCard {
   day = 'day',
   hour = 'hour',
 }
+
+export enum UVStatus {
+  low = 'LOW',
+  mid = 'MODERATE',
+  high = 'HIGH',
+  vhigh = 'EXTEREME',
+}

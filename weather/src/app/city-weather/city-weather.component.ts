@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { weatherResult } from '../shared/api.models';
+import { dayWeather, weather, weatherResult } from '../shared/api.models';
 import { ApiService } from '../shared/api.service';
 import { MyStorage } from '../shared/enums';
 
@@ -12,7 +12,9 @@ import { MyStorage } from '../shared/enums';
 export class CityWeatherComponent implements OnInit {
   selectedLat!: number;
   selectedLon!: number;
-  cityWeather!: weatherResult;
+  weatherResult!: weatherResult;
+  weather!: weather;
+  todayWeather!: dayWeather;
 
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService) {
     this.activatedRoute.queryParams.subscribe((params) => {
@@ -23,12 +25,13 @@ export class CityWeatherComponent implements OnInit {
           MyStorage.selectedCity,
           JSON.stringify({ lat: this.selectedLat, lon: this.selectedLon })
         );
-        console.log(localStorage.getItem(MyStorage.selectedCity));
         this.api
           .getWeather(this.selectedLat, this.selectedLon)
           .subscribe((resp) => {
             console.log(resp);
-            this.cityWeather = resp;
+            this.weatherResult = resp;
+            this.weather = resp.current.weather[0];
+            this.todayWeather = resp.daily[0];
           });
       } else return;
     });
