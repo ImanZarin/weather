@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { searchResult, searchResults } from '../shared/api.models';
+import { SearchResult, SearchResults } from '../shared/api.models';
 import { ApiService } from '../shared/api.service';
 import { MyStrings } from '../shared/constants';
 import { MyParams, MyRoute } from '../shared/enums';
@@ -13,7 +13,7 @@ import { MyParams, MyRoute } from '../shared/enums';
 })
 export class SearchResultComponent implements OnInit {
   searchWord!: string;
-  resultCities!: searchResults | null;
+  resultCities!: SearchResults | null;
   isLoading: boolean = true;
 
   constructor(

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { hourWeather } from '../shared/api.models';
+import { HourWeather } from '../shared/api.models';
 import { MyStrings } from '../shared/constants';
 
 @Component({
@@ -9,7 +9,7 @@ import { MyStrings } from '../shared/constants';
 })
 export class HourlyComponent implements OnInit {
   @Input()
-  hours?: hourWeather[];
+  hours?: HourWeather[];
   @Input()
   time?: number;
   @Input()

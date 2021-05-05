@@ -10,7 +10,15 @@ describe('CityWeatherComponent', () => {
   let apiServiceMock: any;
 
   beforeEach(async () => {
-    apiServiceMock = jasmine.createSpyObj('ApiService', ['getWeather']);
+    apiServiceMock = jasmine.createSpyObj('ApiService', {
+      getWeather: of({
+        current: {
+          weather: [{ id: 1, description: '', icon: '', main: '' }],
+        },
+        daily: [{}],
+        timezone: 'City/1/2',
+      }),
+    });
     const activatedRouteMock = {
       queryParams: of({ lat: 59.35, lon: -17.9 }),
     };

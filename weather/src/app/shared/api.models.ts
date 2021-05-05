@@ -1,11 +1,11 @@
-export type weather = {
+export type Weather = {
   id: number;
   main: string;
   description: string;
   icon: string;
 };
 
-export type searchResult = {
+export type SearchResult = {
   id: number;
   name: string;
   coord: {
@@ -28,17 +28,17 @@ export type searchResult = {
   sys: {
     country: string;
   };
-  weather: weather[];
+  weather: Weather[];
 };
 
-export type searchResults = {
+export type SearchResults = {
   message: string;
   cod: string;
   count: number;
-  list: searchResult[];
+  list: SearchResult[];
 };
 
-export type hourWeather = {
+export type HourWeather = {
   dt: number;
   temp: number;
   feels_like: number;
@@ -51,10 +51,10 @@ export type hourWeather = {
   wind_speed: number;
   wind_deg: number;
   wind_gust: number;
-  weather: weather[];
+  weather: Weather[];
 };
 
-export type dayWeather = {
+export type DayWeather = {
   dt: number;
   sunrise: number;
   sunset: number;
@@ -82,10 +82,10 @@ export type dayWeather = {
   clouds: number;
   wind_speed: number;
   wind_deg: number;
-  weather: weather[];
+  weather: Weather[];
 };
 
-export type currentWeather = {
+export type CurrentWeather = {
   dt: number;
   sunrise: number;
   sunset: number;
@@ -99,15 +99,15 @@ export type currentWeather = {
   visibility: number;
   wind_speed: number;
   wind_deg: number;
-  weather: weather[];
+  weather: Weather[];
 };
 
-export type weatherResult = {
+export type WeatherResult = {
   lat: number;
   lon: number;
   timezone: string;
   timezone_offset: number;
-  current: currentWeather;
-  hourly: hourWeather[];
-  daily: dayWeather[];
+  current: CurrentWeather;
+  hourly: HourWeather[];
+  daily: DayWeather[];
 };

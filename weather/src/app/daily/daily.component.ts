@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { dayWeather } from '../shared/api.models';
+import { DayWeather } from '../shared/api.models';
 import { MyStrings } from '../shared/constants';
 
 @Component({
@@ -9,7 +9,7 @@ import { MyStrings } from '../shared/constants';
 })
 export class DailyComponent implements OnInit {
   @Input()
-  days?: dayWeather[];
+  days?: DayWeather[];
   @Input()
   time?: number;
   @Input()

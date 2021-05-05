@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { currentWeather } from '../shared/api.models';
+import { CurrentWeather } from '../shared/api.models';
 import { MyStrings } from '../shared/constants';
 
 @Component({

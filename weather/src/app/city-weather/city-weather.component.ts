@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { dayWeather, weather, weatherResult } from '../shared/api.models';
+import { DayWeather, Weather, WeatherResult } from '../shared/api.models';
 import { ApiService } from '../shared/api.service';
 import { MyStorage } from '../shared/enums';
 
@@ -12,9 +12,9 @@ import { MyStorage } from '../shared/enums';
 export class CityWeatherComponent implements OnInit {
   selectedLat!: number;
   selectedLon!: number;
-  weatherResult!: weatherResult;
-  weather!: weather;
-  todayWeather!: dayWeather;
+  weatherResult!: WeatherResult;
+  weather!: Weather;
+  todayWeather!: DayWeather;
   cityName!: string;
   isLoading: boolean = true;
 

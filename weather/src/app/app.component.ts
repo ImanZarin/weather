@@ -14,20 +14,10 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    if (
-      !window.location.href.includes(MyRoute.search) &&
-      !window.location.href.includes(MyRoute.weather)
-    )
-      if (localStorage.getItem(MyStorage.selectedCity)) {
-        const myCity: { lat: number; lon: number } = JSON.parse(
-          localStorage.getItem(MyStorage.selectedCity) || ''
-        );
-        this.router.navigate([MyRoute.weather], {
-          queryParams: {
-            lat: myCity.lat,
-            lon: myCity.lon,
-          },
-        });
-      }
+    // if (
+    //   !window.location.href.includes(MyRoute.search) &&
+    //   !window.location.href.includes(MyRoute.weather)
+    // )
+      
   }
 }
