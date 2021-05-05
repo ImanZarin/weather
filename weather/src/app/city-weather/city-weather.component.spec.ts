@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 import { ApiService } from '../shared/api.service';
-
 import { CityWeatherComponent } from './city-weather.component';
 
 describe('CityWeatherComponent', () => {
@@ -11,10 +11,15 @@ describe('CityWeatherComponent', () => {
 
   beforeEach(async () => {
     apiServiceMock = jasmine.createSpyObj('ApiService', ['getWeather']);
+    const activatedRouteMock = {
+      queryParams: of({ lat: 59.35, lon: -17.9 }),
+    };
     await TestBed.configureTestingModule({
       declarations: [CityWeatherComponent],
-      imports: [RouterTestingModule],
-      providers: [{ provide: ApiService, useValue: apiServiceMock }],
+      providers: [
+        { provide: ApiService, useValue: apiServiceMock },
+        { provide: ActivatedRoute, useValue: activatedRouteMock },
+      ],
     }).compileComponents();
   });
 
@@ -24,7 +29,7 @@ describe('CityWeatherComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should call getWeather api', () => {
+    expect(apiServiceMock.getWeather).toHaveBeenCalledOnceWith(59.35, -17.9);
   });
 });

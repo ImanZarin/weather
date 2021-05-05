@@ -1,16 +1,29 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { of } from 'rxjs';
+import { ApiService } from '../shared/api.service';
 import { SearchResultComponent } from './search.result.component';
 
-describe('Search.ResultComponent', () => {
+describe('SearchResultComponent', () => {
   let component: SearchResultComponent;
   let fixture: ComponentFixture<SearchResultComponent>;
+  let apiServiceMock: any;
 
   beforeEach(async () => {
+    apiServiceMock = jasmine.createSpyObj('ApiService', ['search': ]);
+    const activatedRouteMock = {
+      queryParams: of({ search: 'london' }),
+    };
     await TestBed.configureTestingModule({
-      declarations: [ SearchResultComponent ]
-    })
-    .compileComponents();
+      declarations: [SearchResultComponent],
+      imports: [RouterTestingModule, MatSnackBarModule],
+      providers: [
+        { provide: ApiService, useValue: apiServiceMock },
+        { provide: ActivatedRoute, useValue: activatedRouteMock },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +32,7 @@ describe('Search.ResultComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should call search api', () => {
+    expect(apiServiceMock.search).toHaveBeenCalledOnceWith('london');
   });
 });

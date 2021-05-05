@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { searchResults } from './shared/api.models';
+import {  Router } from '@angular/router';
 import { MyStrings } from './shared/constants';
-import { MyRoute, MyStorage, MyUnits } from './shared/enums';
+import { MyRoute, MyStorage } from './shared/enums';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +11,12 @@ import { MyRoute, MyStorage, MyUnits } from './shared/enums';
 export class AppComponent {
   title = MyStrings.app_name;
 
-  constructor(private router: Router, private activateRoute: ActivatedRoute) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     if (
-      !window.location.href.includes('/search') &&
-      !window.location.href.includes('/weather')
+      !window.location.href.includes(MyRoute.search) &&
+      !window.location.href.includes(MyRoute.weather)
     )
       if (localStorage.getItem(MyStorage.selectedCity)) {
         const myCity: { lat: number; lon: number } = JSON.parse(

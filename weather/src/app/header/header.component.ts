@@ -30,7 +30,10 @@ export class HeaderComponent implements OnInit {
 
   searchCity() {
     if (this.inputCity.length < 1)
-      this.snackBar.open(MyStrings.header_empty_input_error);
+      this.snackBar.open(MyStrings.header_empty_input_error, undefined, {
+        duration: 2000,
+        panelClass: ['snackbar'],
+      });
     else
       this.router.navigate([MyRoute.search], {
         queryParams: {

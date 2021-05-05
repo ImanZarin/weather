@@ -28,3 +28,12 @@ body {
   margin-top: -50px;
   margin-left: -50px;
 }
+
+.scrollable-element {
+  scrollbar-color: $primary-dark $primary-light;
+}
+
+.snackbar {
+  background-color: yellowgreen;
+  color: $primary;
+}

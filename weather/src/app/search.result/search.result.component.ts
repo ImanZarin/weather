@@ -26,12 +26,15 @@ export class SearchResultComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this.activatedRoute.queryParams.subscribe((params) => {
-      this.searchWord = params[MyParams.search];
+      this.searchWord = params['search'];
       this.api.search(this.searchWord).subscribe((resp) => {
         if (resp.count === 0) {
           this.resultCities = null;
           this.isLoading = false;
-          this.snackBar.open(MyStrings.search_list_empty_error);
+          this.snackBar.open(MyStrings.search_list_empty_error, undefined, {
+            duration: 2000,
+            panelClass: ['snackbar'],
+          });
         } else if (resp.count === 1) {
           this.isLoading = false;
           this.router.navigate([MyRoute.weather], {
