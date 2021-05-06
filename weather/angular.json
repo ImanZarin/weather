@@ -69,7 +69,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "weather:build"
+            "browserTarget": "weather:build",
+            "host": "0.0.0.0"
           },
           "configurations": {
             "production": {

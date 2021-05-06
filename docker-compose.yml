@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  weather-app-1:
+    image: weather-app-1
+    build:
+      context: ./weather
+      dockerfile: Dockerfile
+    container_name: weather-app-1
+    ports:
+      - 4200:4200
+    environment:
+      - NODE_ENV=development
+      - PORT=4200
+    volumes:
+      - ./weather/src:/app/src
+      - ./weather/test:/app/test
+      - ./weather/angular.json:/app/angular.json
+      - ./weather/package.json:/app/package.json
+      - ./weather/package-lock.json:/app/package-lock.json
+    command: ['npm', 'run', 'start']
