@@ -15,12 +15,9 @@ export class DailyComponent implements OnInit {
   @Input()
   timeOffset?: number;
 
-  title: string;
+  title: string = MyStrings.daily_title;
 
-  constructor() {
-    this.title = MyStrings.daily_title;
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

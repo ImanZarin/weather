@@ -13,12 +13,10 @@ import { MyStrings } from '../shared/constants';
 })
 export class HeaderComponent implements OnInit {
   isMetric: boolean = true;
-  inputCity: string;
+  inputCity: string = '';
   loading: boolean = false;
 
-  constructor(private router: Router, private snackBar: MatSnackBar) {
-    this.inputCity = '';
-  }
+  constructor(private router: Router, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     if (

@@ -25,34 +25,24 @@ export class DetailComponent implements OnInit {
   @Input()
   timeOffset?: number = 0;
 
-  title: string;
-  windTitle: string;
-  windUnit: string;
-  humidityTitle: string;
-  dewTitle: string;
-  pressureTitle: string;
-  pressureUnit: string = "MB";
-  uvTitle: string;
-  uvStatus1: string;
-  uvStatus2: string;
-  uvStatus3: string;
-  uvStatus4: string;
-  sunriseTitle: string;
-  sunsetTitle: string;
+  title: string = MyStrings.details_title;
+  windTitle: string = MyStrings.details_wind;
+  windUnit: string = '--';
+  humidityTitle: string = MyStrings.details_humidity;
+  dewTitle: string = MyStrings.details_dew;
+  pressureTitle: string = MyStrings.details_pressure;
+  pressureUnit: string = 'MB';
+  uvTitle: string = MyStrings.details_uv;
+  uvStatus1: string = UVStatus.low;
+  uvStatus2: string = UVStatus.mid;
+  uvStatus3: string = UVStatus.high;
+  uvStatus4: string = UVStatus.vhigh;
+  sunriseTitle: string = MyStrings.details_sunrise;
+  sunsetTitle: string = MyStrings.details_sunset;
 
-  constructor() {
-    this.title = MyStrings.details_title;
-    this.windTitle = MyStrings.details_wind;
-    this.humidityTitle = MyStrings.details_humidity;
-    this.dewTitle = MyStrings.details_dew;
-    this.pressureTitle = MyStrings.details_pressure;
-    this.uvTitle = MyStrings.details_uv;
-    this.sunriseTitle = MyStrings.details_sunrise;
-    this.sunsetTitle = MyStrings.details_sunset;
-    this.uvStatus1 = UVStatus.low;
-    this.uvStatus2 = UVStatus.mid;
-    this.uvStatus3 = UVStatus.high;
-    this.uvStatus4 = UVStatus.vhigh;
+  constructor() {}
+
+  ngOnInit(): void {
     if (
       localStorage.getItem(MyStorage.unit) &&
       localStorage.getItem(MyStorage.unit) === MyUnits.imperial
@@ -63,8 +53,5 @@ export class DetailComponent implements OnInit {
       this.windUnit = 'KM/H';
       //this.pressureUnit = 'MB';
     }
-  }
-
-  ngOnInit(): void {
   }
 }

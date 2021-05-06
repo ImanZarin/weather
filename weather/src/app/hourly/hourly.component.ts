@@ -15,12 +15,9 @@ export class HourlyComponent implements OnInit {
   @Input()
   timeOffset?: number;
 
-  title: string;
+  title: string = MyStrings.hourly_title;
 
-  constructor() {
-    this.title = MyStrings.hourly_title;
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

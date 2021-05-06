@@ -23,15 +23,9 @@ export class BriefComponent implements OnInit {
   @Input()
   icon?: string;
 
-  feelTxt: string;
+  feelTxt: string = MyStrings.brief_feels_title;
 
+  constructor() {}
 
-  constructor() {
-    this.feelTxt = MyStrings.brief_feels_title;
-    
-  }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
